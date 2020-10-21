@@ -8,10 +8,10 @@ import ShopPage from './pages/shop/chopcomponent';
 import Header from './component/header-component/header'
 import Sign from './pages/register/regist'
 import {auth, createUserProfile} from './firebase/firebase.utiliti'
-import {BrowserRouter as Router } from 'react-router-dom'
+import {BrowserRouter as Router, Redirect } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {setUser} from '../src/store/action/user'
-
+import Icon from './component/cart-icon/cart-icon'
 
 class App extends Component {
 
@@ -37,7 +37,8 @@ class App extends Component {
       }else {
         this.props.setUser(user)
       }
-      
+
+     
     })
   }
 
@@ -55,8 +56,9 @@ class App extends Component {
          <Router>
         <Header />
     <Route exact path="/" component={Homepage} />
+    <Route exact path="cart" component={Icon} />
     <Route exact path="/shop" component={ShopPage} />
-    <Route exact path="/signin" component={Sign} />
+    <Route exact path="/signin" render={() => this.props.currentUser ? (<Redirect to="/" />) : <Sign />} />
     </Router>
    
     </div>

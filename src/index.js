@@ -8,11 +8,13 @@ import {Provider} from 'react-redux'
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk'
 import userReducer from '../src/store/reducer/user'
+import dropdownReducer from '../src/store/reducer/dropdown'
 
 const composeEnhence = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const rootReucer = combineReducers({
-  user: userReducer
+  user: userReducer,
+  dropdown: dropdownReducer
 })
 
 const store = createStore(rootReucer, composeEnhence(applyMiddleware(thunk)) )

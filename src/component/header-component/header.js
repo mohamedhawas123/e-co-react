@@ -4,6 +4,9 @@ import {Link} from 'react-router-dom';
 import {ReactComponent as Logo} from '../../../src/assets/crown.svg'
 import {auth} from '../../firebase/firebase.utiliti'
 import {connect} from 'react-redux'
+import Icon from '../cart-icon/cart-icon'
+import Cartdrop from '../cartdropdown/cartdrop'
+
 
 
 const Header = (props) => (
@@ -28,15 +31,21 @@ const Header = (props) => (
             </Link>
 
            }
+           <Icon />
 
         </div>
+           {
+               props.hide ? null : <Cartdrop />
+           }
+        
         
     </div>
 )
 
 const mapStateToProps = state => {
     return {
-      currentUser: state.user.currentUser
+      currentUser: state.user.currentUser,
+      hide: state.dropdown.hidden
     }
   }
   
