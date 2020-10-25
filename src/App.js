@@ -12,6 +12,9 @@ import {BrowserRouter as Router, Redirect } from 'react-router-dom'
 import {connect} from 'react-redux'
 import {setUser} from '../src/store/action/user'
 import Icon from './component/cart-icon/cart-icon'
+import Checkout from '../src/pages/checkout/checkout'
+
+
 
 class App extends Component {
 
@@ -58,6 +61,7 @@ class App extends Component {
     <Route exact path="/" component={Homepage} />
     <Route exact path="cart" component={Icon} />
     <Route exact path="/shop" component={ShopPage} />
+    <Route exact path="/checkout" component={Checkout} />
     <Route exact path="/signin" render={() => this.props.currentUser ? (<Redirect to="/" />) : <Sign />} />
     </Router>
    

@@ -22,6 +22,34 @@ export const addtoCart = (cartitem) => {
     }
 }
 
+export const clearIt = item => {
+    return {
+        type: actionType.CLEAR_ITEM,
+        item : item
+    }
+}
+
+export const clearItem = item => {
+    return dispatch => {
+        dispatch(clearIt(item))
+    }
+}
+
+export const clearI = item => {
+    return {
+        type: actionType.REMOVE_ITEM,
+        item : item
+    }
+}
+
+export const clearOneItem = item => {
+    return dispatch => {
+        dispatch(clearI(item))
+    }
+}
+
+
+
 
 
 

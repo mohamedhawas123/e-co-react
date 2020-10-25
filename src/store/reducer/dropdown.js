@@ -1,7 +1,7 @@
 import React from 'react'
 import * as actionType from '../action/actionType'
 import {updateObject} from '../utilty'
-import {addItemToCart} from '../cartutilty'
+import {addItemToCart, removeItemFromCart} from '../cartutilty'
 
 const initalState = {
     hidden: true,
@@ -24,6 +24,14 @@ const dropState = (state, action) => {
   //   })
 // }
 
+const clearItem = (state, action) => {
+    
+    return updateObject(state, {
+        cartitem: state.cartitem.filter(cartITem => cartITem.id !== action.item.id)
+    })
+    console.log(state, action)
+}
+
 
 
 const reducer = (state=initalState, action) => {
@@ -33,6 +41,13 @@ const reducer = (state=initalState, action) => {
             ...state,
             cartitem: addItemToCart(state.cartitem, action.cartitem)
           };
+
+        case actionType.CLEAR_ITEM: return clearItem(state, action)
+
+        case actionType.REMOVE_ITEM: return {
+            ...state, 
+            cartitem: removeItemFromCart(state.cartitem, action.item)
+        }
        
         default:
             return state

@@ -12,4 +12,10 @@ export const Drop_FAIL = "Drop_FAIL"
 export const CART_ITEM = "CART_ITEM"
 
 
+export const CLEAR_ITEM = "CLEAR_ITEM"
+
+export const REMOVE_ITEM = "REMOVE_ITEM"
+
+
+
 
