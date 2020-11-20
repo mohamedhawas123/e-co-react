@@ -13,7 +13,8 @@ import { persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'
 import {persistReducer} from 'redux-persist'
 import { PersistGate } from 'redux-persist/integration/react';
-
+import dirctoryReducer from '../src/store/reducer/dirctory'
+import shopReducer from '../src/store/reducer/shop'
 
 
 const persistConfig = {
@@ -29,7 +30,9 @@ const composeEnhence = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const rootReucer = combineReducers({
   user: userReducer,
-  dropdown: dropdownReducer
+  dropdown: dropdownReducer,
+  dict:dirctoryReducer,
+  shop: shopReducer
 })
 
 const pReducer = persistReducer(persistConfig,rootReucer )
