@@ -59,4 +59,7 @@ proviver.setCustomParameters({prompt: 'select_account'});
 export const signInWithGoogle = () => auth.signInWithPopup(proviver)
 
 
+
+
+
 export default firebase
