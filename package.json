@@ -20,7 +20,8 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "routes": "^2.1.0",
-    "stripe": "^8.125.0"
+    "stripe": "^8.125.0",
+    "styled-components": "^5.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
