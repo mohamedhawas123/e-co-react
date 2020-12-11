@@ -1,4 +1,5 @@
 import {SHOP_DATA} from '../../pages/shop/datashop'
+import SHOPACTIONTYPE from '../../pages/shop/shopType'
 
 const InitalState = {
     collection: SHOP_DATA
@@ -7,6 +8,11 @@ const InitalState = {
 
 const Reducer = (state=InitalState, action) => {
     switch(action.type) {
+        case SHOPACTIONTYPE.UPDATE_COLLECTION:
+            return {
+                ...state,
+                
+            }
         default:
             return state
     }
