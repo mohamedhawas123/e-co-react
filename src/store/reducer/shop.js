@@ -11,7 +11,7 @@ const Reducer = (state=InitalState, action) => {
         case SHOPACTIONTYPE.UPDATE_COLLECTION:
             return {
                 ...state,
-                
+                collection: action.payload
             }
         default:
             return state

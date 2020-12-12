@@ -7,18 +7,19 @@ import {Route} from 'react-router-dom'
 import CategoryPage from '../../pages/category/category'
 import {BrowserRouter as Router, Redirect } from 'react-router-dom'
 import {firestore, convertCollectionsSnapshotToMap} from '../../firebase/firebase.utiliti'
-
+import {updateCollection} from '../shop/shopAction'
 
 class ShopPage extends Component  {
 
     unsubscribeFromsnapshot = null
     
     componentDidMount() {
+        const {updateCollection} = this.props
         const collectionRef = firestore.collection('collections')
 
         this.unsubscribeFromsnapshot = collectionRef.onSnapshot(async snap => {
             const collectionMap = convertCollectionsSnapshotToMap(snap)
-            
+            updateCollection(collectionMap)
         })
     }
 
@@ -39,6 +40,8 @@ class ShopPage extends Component  {
 }
 
 
+const mapDispatchToProps = dispatch => ({
+    updateCollection: collectionMap => dispatch(updateCollection(collectionMap))
+})
 
-
-export default ShopPage
+export default connect(null,mapDispatchToProps)(ShopPage)
